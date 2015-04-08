@@ -7,9 +7,11 @@ T = test_params.training_sample_lengths;
 example_samples = cell(N,T);
 
 % Sample trajectories.
+% fid = fopen('policy3.txt');
 for i=1:N,
     % Sample initial state.
-    s = ceil(rand(1,1)*mdp_data.states);
+    % s = ceil(rand(1,1)*mdp_data.states);
+    s = 785;
     
     % Run sample trajectory.
     for t=1:T,
@@ -21,5 +23,8 @@ for i=1:N,
         
         % Move on to next state.
         s = feval(strcat(mdp_model,'step'),mdp_data,mdp_solution,s,a);
+        %s = fgetl(fid);
+        %s = feval(strcat(mdp_model,'step'),mdp_data,mdp_solution,s,a);
+        
     end;
 end;
