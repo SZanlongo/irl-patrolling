@@ -83,8 +83,8 @@ def plotPath(path):
     plt.ylabel('y')
     plt.show()
         
-reward = extractReward(readFile("data/t6.txt")) # original reward matrix
+reward = extractReward(readFile("../data/10f.txt")) # original reward matrix
 simpleReward = simplifyReward(reward, 5)    # simplified reward matrix
 rewardPoints = getHighReward(simpleReward, 1)   # high reward points
-gPath = greedyPath(rewardPoints, [7, 3])    # find greedy path
+gPath = greedyPath(rewardPoints, [0, 0])    # find greedy path
 plotPath(gPath) # plot points
